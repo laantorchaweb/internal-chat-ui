@@ -1,22 +1,23 @@
----
 language: node_js
 node_js:
-  - "4"
-
+- '4'
 sudo: false
-
 cache:
   directories:
-    - node_modules
-
+  - node_modules
 before_install:
-  - npm config set spin false
-  - npm install -g bower
-  - npm install phantomjs-prebuilt
-
+- npm config set spin false
+- npm install -g bower
+- npm install phantomjs-prebuilt
 install:
-  - npm install
-  - bower install
-
+- npm install
+- bower install
 script:
-  - npm test
+- npm test
+deploy:
+  provider: heroku
+  api_key:
+    secure: QCQGeLnAyNtlThpiGMsCSy/45CCxF+G3P3xmU6nnOAVOR6/W6tSo7dDH3VTAagpOZMD06HcNIdMKhJWBGFvj1SDI/0ukClZY7dfaKLwBbqrqAPSFyOqZp+YX7CXgs7gXp6Tzyr4SxC8vvrqUmYv2Hmhde6WcdiyEopmt7CfDq6rtAyc8+Af8Ebvo+sZUuOS6P7eX9jyvbYPo122y5yOfFyuswH4zGnLWNjLaA3+PlgKP7xGN+D0haKym5P9wLCmDTxV5H4dqGIvFNMt0+DMIxwW9Vq7uizf386y7r4sKyTDSZomH64RThctPSddc92G/H0wTS7i4jaMQ/59UWHU7/PBRxeMAeu4+q9kwDI4lIvVSwIphRSZNg7+SL+4T+JCmxcpPXlTUGaG5n/Js09sOLFJtXT7I29NSL+UP+aJX6yYS1raqYr8qj33xwGmcSXGTkriCepZmaI79O/4acZ4PlEuEqarvhmpY0PC1I1nNEY9BxtDs9utHSQTsARwvslL9XRAIgh1HBBaTI4DpuvJoFc/UNDVMp173Jdv0/RV0TqfH8B+0B5QU3DZUpUX13CJQchrHebW4oEDi2Pbf+yi0hR2tVUhWN6jCa+zwBNYn7j7td3ItLGhpLAoza3kMVbsb5L7uc+3ruKcchatx0D68I3LSWtoV41P+hENGxYxIcAk=
+  app: secure-brook-27968
+  on:
+    repo: laantorchaweb/internal-chat-ui
